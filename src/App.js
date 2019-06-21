@@ -1,13 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React,{Fragment,Component} from 'react';
+import Mylayout from './components/Mylayout'
+// 引入ant插件
+import { TabBar } from 'antd-mobile';
 
-function App() {
-  return (
-    <div className="App">
-      项目搭建完成
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {  }
+  }
+  render() { 
+    return ( 
+      <Fragment>
+        <Mylayout></Mylayout>
+      </Fragment>
+     );
+  }
 }
-
+ 
 export default App;
+
+
