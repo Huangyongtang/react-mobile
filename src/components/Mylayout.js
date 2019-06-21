@@ -15,6 +15,7 @@ class TabBarExample extends React.Component {
   }
 
   renderContent(pageText) {
+      
     return (
       <div style={{ backgroundColor: 'white', height: '100%', textAlign: 'center' }}>
         <div style={{ paddingTop: 60 }}>Clicked “{pageText}” tab， show “{pageText}” information</div>
@@ -43,6 +44,7 @@ class TabBarExample extends React.Component {
   }
 
   render() {
+    // console.log(this.props);
     return (
       <div style={ { position: 'fixed', height: '100%', width: '100%', top: 0 } }>
         <TabBar
@@ -56,16 +58,15 @@ class TabBarExample extends React.Component {
             key="Home"
             icon={<span className='iconfont icon-home' />}
             selectedIcon={ <span className='iconfont icon-home' />}
-            selected={this.state.selectedTab === 'blueTab'}
+            selected={this.props.match.url === '/'}
             
             onPress={() => {
-              this.setState({
-                selectedTab: 'blueTab',
-              });
+              this.props.history.push('/')
             }}
             data-seed="logId"
           >
-            1
+              {/* 内容1 */}
+          {this.props.children}
           </TabBar.Item>
           <TabBar.Item
             icon={<span className='iconfont icon-gouwuche' />}
@@ -73,15 +74,14 @@ class TabBarExample extends React.Component {
             title="Cars"
             key="Cars"
             badge={'1'}
-            selected={this.state.selectedTab === 'redTab'}
+            selected={this.props.match.url === '/cart'}
             onPress={() => {
-              this.setState({
-                selectedTab: 'redTab',
-              });
+                this.props.history.push('/cart')
             }}
             data-seed="logId1"
           >
-            2
+              {/* 内容2 */}
+            {this.props.children}
           </TabBar.Item>
           <TabBar.Item 
             icon={<span className='iconfont icon-weibiaoti2fuzhi12' />}
@@ -89,14 +89,13 @@ class TabBarExample extends React.Component {
             title="Mine"
             key="Mine"
             
-            selected={this.state.selectedTab === 'greenTab'}
+            selected={this.props.match.url === '/mine'}
             onPress={() => {
-              this.setState({
-                selectedTab: 'greenTab',
-              });
+                this.props.history.push('/mine')
             }}
           >
-           3
+              {/* 内容3 */}
+          {this.props.children}
           </TabBar.Item>
          
         </TabBar>
