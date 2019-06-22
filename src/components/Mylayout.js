@@ -66,7 +66,8 @@ class TabBarExample extends React.Component {
             data-seed="logId"
           >
               {/* 内容1 */}
-          {this.props.children}
+              
+          {this.props.match.url==='/'?this.props.children:null}
           </TabBar.Item>
           <TabBar.Item
             icon={<span className='iconfont icon-gouwuche' />}
@@ -81,7 +82,7 @@ class TabBarExample extends React.Component {
             data-seed="logId1"
           >
               {/* 内容2 */}
-            {this.props.children}
+              {this.props.match.url==='/cart'?this.props.children:null}
           </TabBar.Item>
           <TabBar.Item 
             icon={<span className='iconfont icon-weibiaoti2fuzhi12' />}
@@ -95,7 +96,7 @@ class TabBarExample extends React.Component {
             }}
           >
               {/* 内容3 */}
-          {this.props.children}
+              { this.props.match.url==='/mine'?this.props.children:null}
           </TabBar.Item>
          
         </TabBar>
