@@ -7,6 +7,8 @@ import {HashRouter as Router,Link,Route,Switch} from 'react-router-dom'
 import Home from './pages/Home'
 import Mine from './pages/Mine'
 import Cart from './pages/Cart'
+import Hello from './pages/Hello'
+import Goodsdetial from './pages/GoodsDetials'
 
 
 class App extends Component {
@@ -19,8 +21,11 @@ class App extends Component {
       <Fragment>
         <Router>
           <Route path='/' exact render={(props)=><Mylayout {...props}> <Home/> </Mylayout>}></Route>
-          <Route path='/mine' exact render={(props)=><Mylayout {...props}> <Mine/> </Mylayout>}></Route>
-          <Route path='/cart' exact render={(props)=><Mylayout {...props}> <Cart/> </Mylayout>}></Route>
+          <Route path='/mine'  render={(props)=><Mylayout {...props}> <Mine/> </Mylayout>}></Route>
+          <Route path='/cart'  render={(props)=><Mylayout {...props}> <Cart/> </Mylayout>}></Route>
+          <Route path='/hello' component={Hello}></Route>
+          {/* 新增一个点击图片进入商品的详情页 */}
+          <Route path='/GoodsGroups/:id' component={Goodsdetial}></Route>
         </Router>
       </Fragment>
      );

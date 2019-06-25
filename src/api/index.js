@@ -20,3 +20,5 @@ axios.interceptors.response.use(function (response) {
   });
 
 export const getGoods=()=>axios.get('goods/gettopdata/goods')
+export const getGoodsGroup=()=>axios.get('goods/getgoodsgroup')
+export const getGoodsDetial=(id)=>axios.get('goods/getgoodsinfo/'+id)

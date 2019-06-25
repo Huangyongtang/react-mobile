@@ -1,9 +1,9 @@
 import React from 'react';
 import '../style/iconfont.css'
-
+import { connect } from "react-redux";
 // 引入ant插件
 import { TabBar } from 'antd-mobile';
-import { className } from 'postcss-selector-parser';
+// import { className } from 'postcss-selector-parser';
 class TabBarExample extends React.Component {
   constructor(props) {
     super(props);
@@ -74,7 +74,7 @@ class TabBarExample extends React.Component {
             selectedIcon={<span className='iconfont icon-gouwuche' />}
             title="Cars"
             key="Cars"
-            badge={'1'}
+            badge={this.props.cartLength}
             selected={this.props.match.url === '/cart'}
             onPress={() => {
                 this.props.history.push('/cart')
@@ -107,5 +107,13 @@ class TabBarExample extends React.Component {
 
 // ReactDOM.render(<TabBarExample />, mountNode);
 
+const mapStateToProps = (state) => {
+  // 种类的数量也等于购物车的长度 
+  return {
+   cartLength:state.cartReducer.cartList.length
+  }
+}
 
-export default TabBarExample;
+
+export default connect(mapStateToProps, null)(TabBarExample);
+
